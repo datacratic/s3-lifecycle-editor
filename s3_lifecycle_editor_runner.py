@@ -13,13 +13,15 @@ from s3_lifecycle_editor import S3LifecycleEditor
 
 if __name__ == "__main__":
 
-    parser = argparse.ArgumentParser(description='Edit bucket lifecycle.')
+    parser = argparse.ArgumentParser(
+        description='Edit/dump/replace bucket lifecycle config.')
     parser.add_argument("-k", "--key", help="AWS key", required=True)
     parser.add_argument("-i", "--id", help="AWS key id", required=True,
                         dest="s3_id")
     parser.add_argument("-b", "--bucket", help="The bucket to edit",
                         required=True)
-    parser.add_argument("-o", "--operation", help="The action to perform",
+    parser.add_argument("-o", "--operation",
+                        help="The action to perform. Default: edit.",
                         choices=["edit", "dump", "replace"], default="edit")
     parser.add_argument("-f", "--file", help="When replacing, define a file",
                         default=None)
