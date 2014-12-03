@@ -60,6 +60,8 @@ Command: """)
         return reply
 
     def get_transition_from_xml(self, x_transition):
+        if x_transition is None:
+            return None
         return Transition(days=x_transition.find("Days").text,
                         storage_class=x_transition.find("StorageClass").text)
 
