@@ -67,11 +67,17 @@ Command: """)
         _id = x_rule.find("ID").text
         if _id == "":
             _id = None
+        try:
+            expiration = int(x_rule.find("Expiration/Days").text)
+            if expiration == 0:
+                expiration = None
+        except AttributeError:
+            expiration = None
         return dict(
             id=_id,
             prefix=x_rule.find("Prefix").text,
             status=x_rule.find("Status").text,
-            expiration=int(x_rule.find("Expiration/Days").text),
+            expiration=expiration,
             transition=self.get_transition_from_xml(x_rule.find("Transition")))
 
     def __init__(self, s3_id, s3_key, bucket):
