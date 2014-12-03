@@ -11,10 +11,12 @@ Tested with python 2.7
 ## Help ##
 ```
 %> python s3_lifecycle_editor_runner.py -h
-usage: s3_lifecycle_editor_runner.py [-h] -k KEY -i S3_ID -b BUCKET
+usage: s3_lifecycle_editor_runner.py [-h] -k KEY -i S3_ID [-b BUCKET]
                                      [-o {edit,dump,replace}] [-f FILE]
+                                     [--bucket-from-file]
 
-Edit bucket lifecycle.
+Edit/dump/replace bucket lifecycle config.
+
 optional arguments:
   -h, --help            show this help message and exit
   -k KEY, --key KEY     AWS key
@@ -22,6 +24,7 @@ optional arguments:
   -b BUCKET, --bucket BUCKET
                         The bucket to edit
   -o {edit,dump,replace}, --operation {edit,dump,replace}
-                        The action to perform
+                        The action to perform. Default: edit.
   -f FILE, --file FILE  When replacing, define a file
+  --bucket-from-file    Deduces the bucket name from the file name
 ```
