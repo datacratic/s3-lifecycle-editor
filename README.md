@@ -4,6 +4,10 @@ s3-lifecycle-editor
 An utility to edit/dump/replace s3 buckets lifecycles.
 Tested with python 2.7
 
+## Requirement ##
+
+* Boto >= 2.34 (Might work with older versions, but that's the one it was developed with)
+
 ## Help ##
 ```
 %> python s3_lifecycle_editor_runner.py -h
